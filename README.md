@@ -43,6 +43,12 @@ npm run deploy
 
 The deploy script publishes Firebase Hosting plus Firestore and Storage rules.
 
+If Firebase Storage has not been initialized for the project yet, create the default bucket first in the Firebase console at **Build > Storage**. New default buckets use the `{PROJECT_ID}.firebasestorage.app` format and may require the Blaze plan and the `firebasestorage.defaultBucket.create` IAM permission. The app will continue saving schema, SQL, plan, anomaly, and audit records to Firestore while Storage is unavailable; once the bucket exists, run:
+
+```bash
+firebase deploy --only storage --project enterprise-mcp-database-server
+```
+
 ## MCP Server
 
 Build the MCP stdio server:
