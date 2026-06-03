@@ -1,0 +1,32 @@
+{
+  "name": "enterprise-mcp-database-server",
+  "version": "1.0.0",
+  "description": "A Firebase-backed MCP database bridge dashboard for safe schema inspection, SQL generation, plan review, and anomaly explanations.",
+  "type": "module",
+  "private": false,
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "deploy": "npm run build && firebase deploy --only hosting,firestore:rules,storage",
+    "mcp:build": "tsc -p mcp-server/tsconfig.json",
+    "mcp:start": "node mcp-server/dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "firebase": "^11.9.0",
+    "firebase-admin": "^13.4.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^3.25.57"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.5.1",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}

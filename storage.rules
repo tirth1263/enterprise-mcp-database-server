@@ -1,0 +1,15 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    function owns(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    match /users/{userId}/{allPaths=**} {
+      allow read, delete: if owns(userId);
+      allow create, update: if owns(userId)
+        && request.resource.size < 10 * 1024 * 1024;
+    }
+  }
+}

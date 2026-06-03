@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.firebase/
+.firebaserc.local
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+*.local
+*.tsbuildinfo
+mcp-server/dist/
+serviceAccount*.json
+.env
+.env.*
+!.env.example
